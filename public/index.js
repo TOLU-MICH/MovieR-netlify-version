@@ -142,4 +142,20 @@ async function description() {
 //     },
 //   },
 // });
-export { createElement, createimg };
+
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+document.querySelector(".container").addEventListener("click", nav);
+document.querySelector(".icon").addEventListener("click", myFunction);
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+function nav(x) {
+  document.querySelector('.container').classList.toggle("change");
+}
+export { createElement, createimg, myFunction, nav };
