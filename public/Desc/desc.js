@@ -1,12 +1,13 @@
+// import { append } from "express/lib/response.js";
 import { createElement, createimg } from "../index.js";
 
 getdata();
 async function getdata() {
   const response = await fetch("/desc");
   const data = await response.json();
-  const { recommendation, review, trending } = data;
-  const sortRecm = recommendation.sort((a, b) => b.vote_count - a.vote_count);
-  const sortTrend = trending.sort((a, b) => b.vote_count - a.vote_count);
+  const { cast } = data;
+  // const sortRecm = recommendation.sort((a, b) => b.vote_count - a.vote_count);
+  // const sortTrend = trending.sort((a, b) => b.vote_count - a.vote_count);
 
   // const { details, cast, recommendation, review } = data;
   // console.log(details, cast, recommendation, review);
@@ -18,10 +19,19 @@ async function getdata() {
   // details.genres.forEach(
   //   (item) => {document.querySelector(".genre").innerHTML += item.name;}
   // );
-  // document.querySelector(".star").innerHTML = overview;
-  // document.querySelector(".imdb").innerHTML = overview;
-  // document.querySelector(".premiere").innerHTML = overview;
-  // document.querySelector(".date").innerHTML = details.release_date;
+  // cast
+  // cast.forEach((item) => {
+  //   const { name, profile_path } = item;
+  //   if (profile_path != null) {
+  //     const text = popular(name, "Cast", "", "more");
+  //     const cad = card(profile_path, "", "text-image cast");
+  //     cad.append(text);
+  //     document.querySelector(".star").append(cad);
+  //   }
+  // });
+  // document.querySelector(".imdb").innerHTML =
+  // `<a href="https://www.imdb.com/title/${details.imdb_id}" target="_blank">https://www.imdb.com/title/${details.imdb_id}</a>;`;
+  // document.querySelectorAll(".premiere").innerHTML = details.release_date;
 
   // review
   // for (const item of review) {
@@ -67,11 +77,11 @@ async function getdata() {
   // const para = p("more", "more");
   // const span = createElement("span", "center", para);
   // console.log(span);
-  // document.querySelector(".trending").append(span);
+  // document.querySelector(".trend ing").append(span);
 }
 
-function p(clas, content,id) {
-  const p = createElement("p", clas,"",id);
+function p(clas, content, id) {
+  const p = createElement("p", clas, "", id);
   p.textContent = content;
   return p;
 }
@@ -80,21 +90,23 @@ function card(path, title, pClass, clas, id, content, date) {
   const img = createimg(path, "", pClass, clas, id);
   const para = p("font-small text-image", title);
   let span;
+  // if there is a content parameter it will execute the component
   if (content && content != "") {
     const time = new Date(date);
     const dateP = p("date", time.toDateString());
     para.append(dateP);
     const para1 = p("font-small content", content);
     span = createElement("span", "text", [para, para1]);
-    para1.addEventListener("click", () => (para1.style.overflow = "visible"));
   } else span = createElement("span", "text center", para);
   img.append(span);
   return img;
 }
 
-function popular(num, name,id) {
-  const p1 = p("rank", num,id);
-  const p2 = p("info", name,id);
-  const span = createElement("span", "trend", [p1, p2]);
+function popular(num, name, id, clas) {
+  let span;
+  const p1 = p("rank", num, id);
+  const p2 = p("info", name, id);
+  if (clas) span = createElement("span", clas, [p1, p2]);
+  else span = createElement("span", "trend", [p1, p2]);
   return span;
 }

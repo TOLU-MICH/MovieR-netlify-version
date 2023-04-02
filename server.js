@@ -26,9 +26,9 @@ app.get("/desc", async (req, res) => {
   // const details = fetch(
   //   `https://api.themoviedb.org/3/movie/76600?api_key=${apiKey}&language=en-US`
   // );
-  // const cast = await fetch(
-  //   `https://api.themoviedb.org/3/movie/76600/credits?api_key=${apiKey}`
-  // );
+  const cast = await fetch(
+    `https://api.themoviedb.org/3/movie/76600/credits?api_key=${apiKey}`
+  );
   const recommendation = await fetch(
     `https://api.themoviedb.org/3/movie/76600/similar?api_key=${apiKey}`
   );
@@ -39,14 +39,14 @@ app.get("/desc", async (req, res) => {
     `https://api.themoviedb.org/3/trending/all/week?api_key=${apiKey}`
   );
   // const detailsJson = await details.json();
-  // const castJson = await cast.json();
+  const castJson = await cast.json();
   const reviewsJson = await reviews.json();
   const recommendationJson = await recommendation.json();
   const trendingJson = await trending.json();
   console.log(reviews);
   res.json({
     // details: detailsJson,
-    // cast: castJson.cast,
+    cast: castJson.cast,
     trending: trendingJson.results,
     recommendation: recommendationJson.results,
     review: reviewsJson.results,

@@ -149,6 +149,7 @@ img {
 }
 
 .text-image .font-small {
+  line-height: 3rem;
   padding: 0 0.4rem 0 0;
 }
 .text-image p {
@@ -162,11 +163,15 @@ img {
   padding-left: 1rem;
 }
 /* CAST */
+.cast {
+  overflow: scroll;
+  overflow-y: hidden;
+}
 .cast .more {
   margin: 0 2rem 0 0.5rem;
 }
 .cast img {
-  width: 5rem;
+  width: 6rem;
   height: 5rem;
   border-radius: 50%;
 }
@@ -180,6 +185,9 @@ img {
 }
 .cast .info {
   padding: 0;
+}
+.cast .text {
+  display: none;
 }
 /* review */
 .review {
