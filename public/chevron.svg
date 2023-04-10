@@ -1,0 +1,10 @@
+<svg width="0" height="0" class="hidden">
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51 51" id="chevron">
+    <circle cx="25.5" cy="25.5" r="25.5" fill="#393939"></circle>
+    <rect x="24.4" y="27.9" width="1.6" height="15.24" rx=".8" transform="rotate(-39 11.114 37.674)"></rect>
+    <rect x="33.3" y="27.9" width="1.6" height="15.24" rx=".8" transform="rotate(37.3 44.444 24.605)"></rect>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.8 23.8" id="search">
+    <path d="M.1 8.6a8.7 8.7 0 00.8 4.8 1 1 0 001.2.4.8.8 0 00.4-1.2 8.3 8.3 0 01-.7-3.8A7.62 7.62 0 0117 9.9a7.7 7.7 0 01-11.8 5.8.8.8 0 00-1.2.2.9.9 0 00.2 1.3 10 10 0 004.5 1.5 9.3 9.3 0 006.1-1.7l5.5 6.4a.9.9 0 00.6.3.7.7 0 00.7-.2.9.9 0 00.1-1.2l-5.6-6.4a8.9 8.9 0 002.6-5.8A9.33 9.33 0 10.1 8.6z" fill="#ecf6fc"></path>
+  </symbol>
+</svg>
