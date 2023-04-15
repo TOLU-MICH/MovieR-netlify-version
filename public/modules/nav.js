@@ -1,5 +1,3 @@
-// myFunction(), nav(), collaps();
-
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function myFunction() {
   document.querySelector(".icon").addEventListener("click", () => {
@@ -12,6 +10,7 @@ function myFunction() {
   });
 }
 
+// it used to change the icon on click
 function nav() {
   document
     .querySelector(".bar-container")
@@ -29,3 +28,6 @@ function collaps() {
     )
   );
 }
+
+
+export{nav,myFunction,collaps}

@@ -40,7 +40,6 @@ app.get("/movie", async (req, res) => {
   console.log("sent!");
 });
 
-let data;
 let id, media_type;
 // These router is responsible for fetching the date needed by the description page
 app.get("/desc", async (req, res) => {
@@ -51,7 +50,7 @@ app.get("/desc", async (req, res) => {
     `https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${apiKey}`
   );
   const recommendation = await fetch(
-    `https://api.themoviedb.org/3/${media_type}/${id}/similar?api_key=${apiKey}`
+    `https://api.themoviedb.org/3/${media_type}/${id}/recommendations?api_key=${apiKey}`
   );
   const reviews = await fetch(
     `https://api.themoviedb.org/3/${media_type}/${id}/reviews?api_key=${apiKey}`
@@ -60,7 +59,6 @@ app.get("/desc", async (req, res) => {
   const castJson = await cast.json();
   const reviewsJson = await reviews.json();
   const recommendationJson = await recommendation.json();
-  console.log(reviews);
   res.json({
     details: detailsJson,
     cast: castJson.cast,
@@ -71,9 +69,18 @@ app.get("/desc", async (req, res) => {
 });
 
 app.post("/desc", async (req, res) => {
-  data = await req.body;
+  const data = await req.body;
   id = data.id;
   media_type = data.media_type;
   res.json(data);
   console.log(data);
+});
+
+app.post("/desc/inp", async (req, res) => {
+  const data = await req.body.value;
+  const search = await fetch(
+    `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&query=${data}`
+  );
+  const searchJson = await search.json();
+  res.json(searchJson.results);
 });

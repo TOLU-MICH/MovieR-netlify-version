@@ -1,7 +1,6 @@
-import { getData, swiper, nav, myFunction, collaps } from "../index.js";
+import { getData, swiper } from "../modules/main.js";
+import { nav, myFunction, collaps } from "../modules/nav.js";
+
 const links = ["../movie/movie.html", "./series.html"];
-document.addEventListener("DOMContentLoaded", () => {
-  getData("tv", links);
-});
-nav(), myFunction(), collaps();
+nav(), myFunction(), collaps(), getData("tv", links);
 swiper;

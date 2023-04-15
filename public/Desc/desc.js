@@ -1,8 +1,21 @@
 import { collaps, myFunction, nav } from "../modules/nav.js";
 import { popularCard, card, popular } from "../modules/card.js";
+import { description } from "../modules/element.js";
 
+const recm = document.querySelector(".recommendation");
 const swipContainer = document.querySelector(".swiper-wrapper");
-// nav(), collaps(), myFunction();
+
+for (let i = 0; i < 6; i++) {
+  document.querySelector(
+    ".review-skeleton"
+  ).innerHTML += `<div class="text-image review"><img src="" class="review-img"><span class="text"><span class="text-image"><p class="font-small skeleton skeleton-tag"></p><p class="date skeleton skeleton-small"></p></span><p class="font-small content"><div><p class="skeleton skeleton-text"></p><p class="skeleton skeleton-text"></p><p class="skeleton skeleton-text"></p></div></p></span></div>`;
+  recm.innerHTML += `<div class="child center" id="4194 tv"><img src=""  class="skeleton"><span class="text center"><p class="font-small text-image skeleton skeleton-tag  "></p></span></div>`;
+  document.querySelector(
+    ".skeleton-overview"
+  ).innerHTML += `<div class="skeleton skeleton-text"></div><div class="skeleton skeleton-text"></div>`;
+  swipContainer.innerHTML += `<div class="swiper-slide center"><img src="" alt="" class="skeleton" /><span class="more"><p class="skeleton skeleton-text"></p><p class="skeleton skeleton-tag "></p></span></div>`;
+}
+
 // the list of all languages and there abrivation
 const lang_list = {
   af: "Afrikaans",
@@ -149,7 +162,7 @@ const lang_list = {
   zu: "Zulu",
 };
 
-collaps(),myFunction(),nav(), getdata();
+collaps(), myFunction(), nav(), getdata();
 async function getdata() {
   const response = await fetch("/desc");
   const data = await response.json();
@@ -157,28 +170,39 @@ async function getdata() {
   const trendResponse = await fetch("/trend");
   const trendData = await trendResponse.json();
   const { movie, series } = trendData;
+  console.log(recommendation,cast);
+  // sort the data in desending order using the votecount
   const sortRecm = recommendation.sort((a, b) => b.vote_count - a.vote_count);
-  console.log(recommendation);
+  // release date
   document.querySelectorAll(".premiere").forEach((item) => {
     item.innerHTML = details.release_date;
   });
   document.querySelector(".movie_type").textContent = media_type;
-  document.querySelector(
-    ".backdrop"
-  ).src = `https://image.tmdb.org/t/p/original${details.backdrop_path}`;
-  document.querySelector(
-    ".img-child"
-  ).src = `https://image.tmdb.org/t/p/original${details.poster_path}`;
+  // background image of the movie
+ const backdrop = document.querySelector(".backdrop");
+ backdrop.classList.remove("skeleton")
+ backdrop.src = `https://image.tmdb.org/t/p/original${details.backdrop_path}`;
+ // image of the movie
+ const imag = document.querySelector(".img-child");
+ imag.classList.remove("skeleton")
+  imag.src = `https://image.tmdb.org/t/p/original${details.poster_path}`;
+  // Title
   document.querySelector(".title").innerHTML = details.title;
+  //  tagline of the movie
   document.querySelector(".tagline").innerHTML = details.tagline;
+  //  overview
   document.querySelector(".overview").innerHTML = details.overview;
+  // genre
+  document.querySelector(".genre").innerHTML = "";
   details.genres.forEach((item) => {
     document.querySelector(".genre").innerHTML += ` ${item.name} |`;
   });
   // cast
   swipContainer.innerHTML = "";
+  // it gets the first 7 items from the data
   cast.slice(0, 6).forEach((item) => {
     const { name, profile_path } = item;
+    // if there is a profile picture it will display the item
     if (profile_path != null) {
       const text = popular(name, "Cast", "more");
       const cad = card(profile_path, "", "swiper-slide center");
@@ -187,22 +211,26 @@ async function getdata() {
     }
   });
   // imdb
+  document.querySelector(".imdb").classList.remove("skeleton,skeleton-tag");
   document.querySelector(
     ".imdb"
-  ).innerHTML = `<a href="https://www.imdb.com/title/${details.imdb_id}" target="_blank">https://www.imdb.com/title/${details.imdb_id}</a>;`;
+  ).innerHTML = `<a href="https://www.imdb.com/title/${details.imdb_id}" target="_blank">https://www.imdb.com/title/${details.imdb_id}</a>`;
   // release date
   document.querySelectorAll(".premiere").innerHTML = details.release_date;
   // language
   const language = lang_list[details.original_language];
-  console.log(language);
   document.querySelector(".lang").textContent = language;
 
   // review
+  document.querySelector(".review-container").innerHTML = " ";
   for (const item of review) {
     const { username, avatar_path } = item.author_details;
     const { content, updated_at } = item;
+    // if the item as a profile picture
     if (avatar_path != null) {
+      // checks if the profile path is a url
       if (avatar_path.length == 32) {
+        // if it's not a url it will execute the statement
         const cad = card(
           avatar_path,
           username,
@@ -213,6 +241,7 @@ async function getdata() {
           content,
           updated_at
         );
+
         document.querySelector(".review-container").append(cad);
         console.log(avatar_path.length);
       }
@@ -221,6 +250,7 @@ async function getdata() {
 
   const addr = "./desc.html";
   // recommendation
+  recm.innerHTML = "";
   for (const item of sortRecm) {
     const { id, title, poster_path } = item;
     // checks if there is a path to the image
@@ -233,7 +263,8 @@ async function getdata() {
         `${id} ${media_type}`,
         addr
       );
-      document.querySelector(".recommendation").append(cad);
+      cad.addEventListener("click", description(this));
+      recm.append(cad);
     }
   }
 
@@ -241,6 +272,12 @@ async function getdata() {
   popularCard(movie, ".movie", addr, "../movie/movie.html");
   popularCard(series, ".tv", addr, "../series/series.html");
 }
+
+document.querySelectorAll(".content").forEach((item) => {
+  item.addEventListener("click", function () {
+    this.style.whiteSpace = "normal";
+  });
+});
 
 const swiper = new Swiper(".swiper", {
   // Default parameters

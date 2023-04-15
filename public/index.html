@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -13,6 +13,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
     />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -22,8 +23,8 @@
         <a href="#home" class="left"
           ><p>Movie<strong>R</strong></p>
         </a>
-        <a href="./movie/movie.html" >Movies</a>
-        <a href="#contact">Series</a>
+        <a href="./movie/movie.html">Movies</a>
+        <a href="./series/series.html">Series</a>
         <a href="./index.html" class="active">Discover</a>
         <a href="#contact">Contact</a>
         <a href="javascript:void(0);" class="icon">
@@ -36,24 +37,19 @@
       </nav>
     </header>
     <main>
-       <section class="block block--dark block--skewed-left hero">
-      <div class="container-block  grid--1x2">
-        <header class="block__header hero__content">
-          <h1  class="block__heading">
-            cloud Hosting for Pros
-          </h1>
-          <p class="hero__tagline">
-            Deploy your website in less than 60 seconds.
-          </p>
-          <a href="" class="btn btn--accent btn--stretched">Get Started</a>
-        </header>
-          <img class="hero__image" src="../mov.gif" alt="" />
-        </picture>
-      </div>
-    </section>
-    <!-- search bar -->
+      <section class="block block--dark block--skewed-left hero">
+        <div class="container-block grid--1x2">
+          <header class="block__header hero__content">
+            <h1 class="block__heading" data-aos="fade-right">Movie Recommendation For You</h1>
+            <p class="hero__tagline" data-aos="fade-left">We recommend the best movies</p>
+            <a href="" class="btn btn--accent btn--stretched">Get Started</a>
+          </header>
+          <img class="hero__image skeleton" src="./mov.gif" alt="" data-aos="fade-up-left" />
+        </div>
+      </section>
+      <!-- search bar -->
       <section>
-        <div class="input-group">
+        <div data-aos="fade-down" data-aos-delay="100" class="input-group">
           <input
             aria-label="Domain"
             type="text"
@@ -63,23 +59,23 @@
           <button class="btn btn--accent">Search</button>
         </div>
         <!-- Slider main container -->
-        <div class="swiper">
+        <div class="swiper" data-aos="zoom-in">
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Slides -->
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
-            <div class="swiper-slide">Slide 4</div>
-            <div class="swiper-slide">Slide 5</div>
-            <div class="swiper-slide">Slide 6</div>
-            <div class="swiper-slide">Slide 7</div>
-            <div class="swiper-slide">Slide 8</div>
-            <div class="swiper-slide">Slide 9</div>
-            <div class="swiper-slide">Slide 10</div>
-            <div class="swiper-slide">Slide 11</div>
-            <div class="swiper-slide">Slide 12</div>
-            <div class="swiper-slide">Slide 13</div>
+            <div class="swiper-slide skeleton">Slide 1</div>
+            <div class="swiper-slide skeleton">Slide 2</div>
+            <div class="swiper-slide skeleton">Slide 3</div>
+            <div class="swiper-slide skeleton">Slide 4</div>
+            <div class="swiper-slide skeleton">Slide 5</div>
+            <div class="swiper-slide skeleton">Slide 6</div>
+            <div class="swiper-slide skeleton">Slide 7</div>
+            <div class="swiper-slide skeleton">Slide 8</div>
+            <div class="swiper-slide skeleton">Slide 9</div>
+            <div class="swiper-slide skeleton">Slide 10</div>
+            <div class="swiper-slide skeleton">Slide 11</div>
+            <div class="swiper-slide skeleton">Slide 12</div>
+            <div class="swiper-slide skeleton">Slide 13</div>
             ...
           </div>
           <!-- If we need pagination -->
@@ -90,26 +86,70 @@
           <div class="swiper-button-next"></div>
         </div>
       </section>
-     <section class="center">
-      <!-- media -->
-       <section class="media" >
-         <div class="container center"></div>
-       </section>
-       <!-- trending -->
-       <section class="fame">
-         <div class="child trending movie">
-           <h1 class="type">Trending Movies</h1>
-           <!-- <div class="child trending movie">
-           <h1 class="type">Trending Movies</h1>
-         <div class="center" id="76600 movie"><img src="https://image.tmdb.org/t/p/w342//t6HIqrRAclMCA60NsSmeqe9RmNV.jpg"><span class="text center"><a href="./Desc/desc.html"><p class="font-small text-image">Avatar: The Way of Water</p></a></span></div><span id="315162 movie"><p class="rank">2</p><a href="./Desc/desc.html"><p class="info">Puss in Boots: The Last Wish</p></a></span><span id="785084 movie"><p class="rank">3</p><a href="./Desc/desc.html"><p class="info">The Whale</p></a></span><span id="640146 movie"><p class="rank">4</p><a href="./Desc/desc.html"><p class="info">Ant-Man and the Wasp: Quantumania</p></a></span><span id="603692 movie"><p class="rank">5</p><a href="./Desc/desc.html"><p class="info">John Wick: Chapter 4</p></a></span><a class="center" href="./movie/movie.html"><p class="more">more</p></a></div> -->
-         </div>
-         <div class="child trending tv">
-           <h1 class="type">Trending Tv Series</h1>
-         </div>
-       </section>
-     </section>
+      <section class="center">
+        <!-- media -->
+        <section class="media">
+          <div class="container center"></div>
+        </section>
+        <!-- trending -->
+        <section class="fame">
+          <h1>Trending Movies</h1>
+          <div class="child trending movie" data-aos="fade-down">
+            <div class="center">
+              <img src="#" alt="" class="skeleton" />
+              <span class="text center">
+                <span class="skeleton skeleton-tag"></span>
+              </span>
+            </div>
+            <span>
+              <span class="rank skeleton skeleton-text"></span>
+              <span class="skeleton skeleton-tag info"></span>
+            </span>
+            <span>
+              <span class="rank skeleton skeleton-text"></span>
+              <span class="skeleton skeleton-tag info"></span>
+            </span>
+            <span>
+              <span class="rank skeleton skeleton-text"></span>
+              <span class="skeleton skeleton-tag info"></span>
+            </span>
+            <span>
+              <span class="rank skeleton skeleton-text"></span>
+              <span class="skeleton skeleton-tag info"></span>
+            </span>
+            <p class="skeleton skeleton-text more"></p>
+          </div>
+          <h1>Trending Tv Series</h1>
+          <div class="child trending tv"  data-aos="fade-down">
+            <div class="center">
+              <img src="#" alt="" class="skeleton" />
+              <span class="text center">
+                <span class="skeleton skeleton-tag"></span>
+              </span>
+            </div>
+            <span>
+              <span class="rank skeleton skeleton-text"></span>
+              <span class="skeleton skeleton-tag info"></span>
+            </span>
+            <span>
+              <span class="rank skeleton skeleton-text"></span>
+              <span class="skeleton skeleton-tag info"></span>
+            </span>
+            <span>
+              <span class="rank skeleton skeleton-text"></span>
+              <span class="skeleton skeleton-tag info"></span>
+            </span>
+            <span>
+              <span class="rank skeleton skeleton-text"></span>
+              <span class="skeleton skeleton-tag info"></span>
+            </span>
+
+            <p class="skeleton skeleton-text more"></p>
+          </div>
+        </section>
+      </section>
     </main>
- <footer class="block block--dark footer">
+    <footer class="block block--dark footer">
       <div class="container-block grid--1x2 flex footer__sections">
         <section class="collapsible collapsible--expanded footer__section">
           <div class="collapsible__header">
@@ -173,14 +213,27 @@
         </section>
         <div class="footer__brand">
           <a href="#home" class="left"
-          ><p class="logo">Movie<strong>R</strong></p>
-        </a>
-        <a href="https://www.themoviedb.org/"><img src="tmdb.svg" alt=""></a>
+            ><p class="logo">Movie<strong>R</strong></p>
+          </a>
+          <a href="https://www.themoviedb.org/"
+            ><img src="tmdb.svg" alt=""
+          /></a>
           <p class="footer__copyright">Copyright 2020 Mosh Hamedani</p>
         </div>
       </div>
     </footer>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <template id="card-template">
+      <div class="child">
+        <span class="type skeleton"></span>
+        <img src="" class="skeleton" />
+        <p class="skeleton skeleton-text"></p>
+      </div>
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <script src="./index.js" type="module"></script>
-</body>
+  </body>
 </html>

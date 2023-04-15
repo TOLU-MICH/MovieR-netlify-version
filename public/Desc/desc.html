@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
     <link
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Alkatra&display=swap"
       rel="stylesheet"
@@ -14,8 +13,13 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
     />
-    <script src="https://kit.fontawesome.com/ba5fffdde7.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../style.css">
+    <script
+      src="https://kit.fontawesome.com/ba5fffdde7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
   <body>
     <!-- nav bar -->
     <header class="sticky">
@@ -23,9 +27,9 @@
         <a href="#home" class="left"
           ><p>Movie<strong>R</strong></p>
         </a>
-        <a href="#news" class="active">Movies</a>
-        <a href="#contact">Series</a>
-        <a href="#about">Discover</a>
+        <a href="../movie/movie.html">Movies</a>
+        <a href="../series/series.html">Series</a>
+        <a href="../index.html">Discover</a>
         <a href="#contact">Contact</a>
         <a href="javascript:void(0);" class="icon">
           <div class="bar-container">
@@ -38,87 +42,142 @@
     </header>
     <!-- backdrop -->
     <div class="image-container">
-      <img src="" alt="" srcset="" class="backdrop">
-      <img src="" alt="" srcset="" class="child img-child">
+      <img src="#" alt="" class="backdrop skeleton" />
+      <img src="#" alt="" class="child img-child skeleton" data-aos="fade-up" />
     </div>
     <article>
       <!-- Title -->
-      <h1 class="title"></h1>
-          <!-- text image -->
-        <span class="text-image">
-      
-            <span class="font font-small"><i class="fa-solid fa-film" style="color: #9ea0a3;"></i></span>
-            <p class="font font-small movie_type">lorem ispum</p>
-            <span class="font font-small"><i class="fa-solid fa-calendar-days" style="color: #9ba5b5;"></i></span>
-            <p class="font font-small premiere">lorem ispum</p>
-          </span>
+      <h1 class="title">
+        <span class="skeleton skeleton-tag"></span>
+      </h1>
+
+      <!-- text image -->
+      <div class="text-image">
+        <span class="font font-small"
+          ><i class="fa-solid fa-film" style="color: #9ea0a3"></i
+        ></span>
+        <span class="font font-small movie_type">
+          <span class="skeleton skeleton-small"></span>
+        </span>
+        <span class="font font-small"
+          ><i class="fa-solid fa-calendar-days" style="color: #9ba5b5"></i
+        ></span>
+        <span class="font font-small premiere">
+          <span class="skeleton skeleton-small"></span>
+        </span>
+      </div>
     </article>
-   <!-- content -->
+    <!-- content -->
     <section class="cont">
       <section class="media">
         <div class="content-container">
-                <article>
-                  <strong class="tagline">OVERVIEW:</strong>
-                  <P class="overview">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, iure ea. Odit cupiditate dolorem excepturi beatae atque ad enim amet nostrum, delectus quod earum voluptate alias ratione odio eaque aut tempora ex reiciendis officia id officiis est natus quis? Fuga esse at quasi nisi vitae, quod reprehenderit recusandae a qui?</Pc>
-                              </span>
-                              <div class="child-content">
-                  <span class="text-image">
-                      <strong >Genre:</strong><p class="genre"></p>
-                  </span>
-                  <span class="text-image">
-                    <strong>Release-date: </strong><p class="premiere"></p>
-                   </span>
-                  <span class="star cast">
-                   <!-- Slider main container -->
-                          <div class="swiper">
-                            <!-- Additional required wrapper -->
-                            <div class="swiper-wrapper">
-                              <!-- Slides -->
-                              <div class="swiper-slide">Slide 1</div>
-                              <div class="swiper-slide">Slide 2</div>
-                              <div class="swiper-slide">Slide 3</div>
-                              <div class="swiper-slide">Slide 4</div>
-                              <div class="swiper-slide">Slide 5</div>
-                              <div class="swiper-slide">Slide 6</div>
-                              <div class="swiper-slide">Slide 7</div>
-                              <div class="swiper-slide">Slide 8</div>
-                              <div class="swiper-slide">Slide 9</div>
-                              <div class="swiper-slide">Slide 10</div>
-                              <div class="swiper-slide">Slide 11</div>
-                              <div class="swiper-slide">Slide 12</div>
-                              <div class="swiper-slide">Slide 13</div>
-                              ...
-                            </div>
-                          </div>
-                                 </span>
-                  <span class="text-image">
-                     <strong>IMDB: </strong><p class="imdb"></p>
-                                 </span>
-                  <span class="text-image">
-                     <strong>Language: </strong><p class="lang"></p>
-                                 </span>
-                  
-                              </div>
-                </article>
-                <article class="review-container">
-              <h1 class="title">Comments</h1>
-
-            </article>
-            <strong>You might also like:</strong>
-            <div class = "recommendation"></div>
+          <article>
+            <strong class="tagline"
+              ><span class="skeleton skeleton-tag"></span
+            ></strong>
+            <p class="overview"><span class="skeleton-overview"></span></p>
+            <div class="child-content">
+              <p class="text-image">
+                <strong>Genre:</strong>
+                <span class="genre"
+                  ><span class="skeleton skeleton-tag"></span
+                ></span>
+              </p>
+              <p class="text-image">
+                <strong>Release-date: </strong>
+                <span class="premiere">
+                  <span class="skeleton skeleton-tag"></span>
+                </span>
+              </p>
+              <div class="star cast">
+                <!-- Slider main container -->
+                <div class="swiper" data-aos="fade-left">
+                  <!-- Additional required wrapper -->
+                  <div class="swiper-wrapper">
+                    <!-- Slides -->
+                  </div>
+                </div>
+              </div>
+              <span class="text-image">
+                <strong>IMDB: </strong>
+                <p class="imdb"><span class="skeleton skeleton-tag"></span></p>
+              </span>
+              <span class="text-image">
+                <strong>Language: </strong>
+                <span class="lang"
+                  ><span class="skeleton skeleton-tag"></span
+                ></span>
+              </span>
+            </div>
+          </article>
+          <article class="review-container">
+            <h1 class="title">Comments</h1>
+            <div class="review-skeleton"></div>
+          </article>
+          <strong>You might also like:</strong>
+          <div class="recommendation"></div>
+        </div>
+        >
       </section>
-      
-         <section class="fame">
-           <div class="child trending movie">
-             <h1 class="type">Trending Movies</h1>
-           </div>
-           <div class="child trending tv">
-             <h1 class="type">Trending Tv Series</h1>
-           </div>
-         </section>
+      <!-- trending -->
+      <section class="fame">
+        <h1>Trending Movies</h1>
+        <div class="child trending movie" data-aos="fade-up">
+          <div class="center">
+            <img src="#" alt="" class="skeleton" />
+            <span class="text center">
+              <span class="skeleton skeleton-tag"></span>
+            </span>
+          </div>
+          <span>
+            <span class="rank skeleton skeleton-text"></span>
+            <span class="skeleton skeleton-tag info"></span>
+          </span>
+          <span>
+            <span class="rank skeleton skeleton-text"></span>
+            <span class="skeleton skeleton-tag info"></span>
+          </span>
+          <span>
+            <span class="rank skeleton skeleton-text"></span>
+            <span class="skeleton skeleton-tag info"></span>
+          </span>
+          <span>
+            <span class="rank skeleton skeleton-text"></span>
+            <span class="skeleton skeleton-tag info"></span>
+          </span>
+          <p class="skeleton skeleton-text more"></p>
+        </div>
+        <h1>Trending Tv Series</h1>
+        <div class="child trending tv" data-aos="fade-up">
+          <div class="center">
+            <img src="#" alt="" class="skeleton" />
+            <span class="text center">
+              <span class="skeleton skeleton-tag"></span>
+            </span>
+          </div>
+          <span>
+            <span class="rank skeleton skeleton-text"></span>
+            <span class="skeleton skeleton-tag info"></span>
+          </span>
+          <span>
+            <span class="rank skeleton skeleton-text"></span>
+            <span class="skeleton skeleton-tag info"></span>
+          </span>
+          <span>
+            <span class="rank skeleton skeleton-text"></span>
+            <span class="skeleton skeleton-tag info"></span>
+          </span>
+          <span>
+            <span class="rank skeleton skeleton-text"></span>
+            <span class="skeleton skeleton-tag info"></span>
+          </span>
+
+          <p class="skeleton skeleton-text more"></p>
+        </div>
+      </section>
     </section>
 
-     <footer class="block block--dark footer">
+    <footer class="block block--dark footer">
       <div class="container-block grid--1x2 flex footer__sections">
         <section class="collapsible collapsible--expanded footer__section">
           <div class="collapsible__header">
@@ -165,17 +224,24 @@
             </ul>
           </div>
         </section>
-                <div class="footer__brand">
+        <div class="footer__brand">
           <a href="#home" class="left"
-          ><p class="logo">Movie<strong>R</strong></p>
-        </a>
-        <a href="https://www.themoviedb.org/"><img src="../tmdb.svg" alt=""></a>
+            ><p class="logo">Movie<strong>R</strong></p>
+          </a>
+          <a href="https://www.themoviedb.org/"
+            ><img src="../tmdb.svg" alt=""
+          /></a>
           <p class="footer__copyright">Copyright 2020 Mosh Hamedani</p>
         </div>
       </div>
     </footer>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      // initialize the appear on screen animation
+      AOS.init();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="./desc.js" type="module"></script>
   </body>
 </html>

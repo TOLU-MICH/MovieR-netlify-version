@@ -1,11 +1,6 @@
-import { getData, swiper, nav, myFunction, collaps } from "../index.js";
-import { popularCard } from "../Desc/desc.js";
+import { getData, swiper } from "../modules/main.js";
+import { nav, myFunction, collaps } from "../modules/nav.js";
 
 const links = ["./movie.html", "../series/series.html"];
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("movie yes");
-  getData("movie", links);
-});
-nav(), myFunction(), collaps();
-popularCard();
+nav(), myFunction(), collaps(), getData("movie", links);
 swiper;

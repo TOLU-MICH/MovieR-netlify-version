@@ -1,21 +1,36 @@
 import { popularCard } from "./card.js";
-import { createimg, createElement } from "./element.js";
+import { createimg, createElement, description } from "./element.js";
+const swipContainer = document.querySelector(".swiper-wrapper");
+const container = document.querySelector(".container");
 
+/**
+ *GETDATA
+ *This function is responsible for populating the whole page
+ * @param {*} request
+ * specifies the kind of request
+ * @param {*} morelink
+ * the link to the page it will be taken too, to view related content
+ */
 async function getData(request, morelink) {
+  const cardTemplate = document.getElementById("card-template");
+  for (let i = 0; i < 18; i++) {
+    container.append(cardTemplate.content.cloneNode(true));
+  }
+
   const response = await fetch("/movie");
   const data = await response.json();
   const { trending, popular } = data;
   const trendResponse = await fetch("/trend");
   const trendData = await trendResponse.json();
   const { series, movie } = trendData;
-  // if there is an argument it will execute the statement
   let sortData, addr;
+  // if there is an argument it will execute the statement
   if (request && request != "") {
-    // sort the data in descending order using the vote count
     if (request == "movie") {
+      // sort the data in descending order using the vote count
       sortData = movie.sort((a, b) => b.vote_count - a.vote_count);
     } else {
-      //  the argument is not 'movie' then it will display the trending tv series
+      //if the argument is not 'movie' then it will display the trending tv series
       sortData = series.sort((a, b) => b.vote_count - a.vote_count);
     }
     addr = "../Desc/desc.html";
@@ -29,41 +44,99 @@ async function getData(request, morelink) {
   /*set the swipper content to be empty once the data as been fetched */
   swipContainer.innerHTML = " ";
   sortPopular.forEach((item) => {
-    const { id, poster_path, media_type } = item;
+    const { id, poster_path } = item;
     // define the swipper content for each of the item
-    let imageDiv = createimg(poster_path, media_type, "swiper-slide", "", id);
-    swipContainer.appendChild(imageDiv);
-    // const swiper = document.querySelector(".swiper").swiper;
-    // // moves the swipper every 4seconds
-    // setInterval(() => {
-    //   // Now you can use all slider methods like
-    //   swiper.slideNext();
-    // }, 4000);
-  });
-  console.log(sortData);
-  let i = 0;
-  for (let item of sortData) {
-    const { id, title, name, poster_path, media_type } = item;
-
-    const impst = createimg(
+    let imageDiv = createimg(
       poster_path,
-      media_type,
-      "child",
+      "movie",
+      "swiper-slide",
       "",
-      `${id} ${media_type}`
+      `${id} movie`
     );
-    const p = createElement("p", "", title || name);
-    const link = createElement("a", "", p);
-    impst.append(link);
-    link.setAttribute("href", addr);
-    // impst.id = `${i++}`;
-    impst.addEventListener("click", description);
-    document.querySelector(".container").append(impst);
-  }
+    imageDiv.addEventListener("click", function () {
+      console.log(this);
+      description(this);
+      location.href = addr;
+    });
+    swipContainer.appendChild(imageDiv);
+  });
+
+  // slides the swipper every 4seconds
+  const swiper = document.querySelector(".swiper").swiper;
+  setInterval(() => {
+    swiper.slideNext();
+  }, 4000);
+
+  // container.innerHTML = "";
+  // it populates the page with data given
+  const sorted = sortData.slice(0, 18);
+
+  populating(sorted, addr);
+
   popularCard(movie, ".movie", addr, morelink[0]);
   popularCard(series, ".tv", addr, morelink[1]);
+
+  const buttn = document.querySelector(".input-group .btn");
+  buttn.addEventListener("click", () => search(addr));
 }
 
+/**
+ *It's responsible for searching and bringing out the result
+ *
+ * @param {*} addr
+ * it specifies the link that you'll redirected to when the title is clicked on
+ */
+async function search(addr) {
+  const input = document.querySelector(".input");
+  const inpValue = input.value;
+  if (inpValue.length >= 1) {
+    const data = await fetch("/desc/inp", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      //make sure to serialize your JSON body
+      body: JSON.stringify({
+        value: inpValue,
+      }),
+    });
+    const response = await data.json();
+    const sortData = response.sort((a, b) => b.vote_count - a.vote_count);
+    container.innerHTML = "";
+    populating(sortData, addr);
+    inpValue.value = "";
+  }
+}
+
+/**
+ *POPULATING
+ *This function iterate over a data,
+ populate the parent element with a card component for each of the item of the given data  
+ * @param {*} data
+ * This is the data that will be iterated
+ */
+function populating(data, addr) {
+  container.innerHTML = "";
+  data.forEach((item) => {
+    const { id, title, name, poster_path, media_type } = item;
+    if (poster_path != null) {
+      const impst = createimg(
+        poster_path,
+        media_type,
+        "child",
+        "",
+        `${id} ${media_type}`
+      );
+      const p = createElement("p", "", title || name);
+      const link = createElement("a", "", p);
+      impst.append(link);
+      link.setAttribute("href", addr);
+      impst.addEventListener("click", description);
+      container.append(impst);
+    }
+  });
+}
+// this function is responsible for the swipper
 const swiper = new Swiper(".swiper", {
   // Optional parameters
   direction: "horizontal",
@@ -102,3 +175,5 @@ const swiper = new Swiper(".swiper", {
     },
   },
 });
+
+export { getData, swiper };
