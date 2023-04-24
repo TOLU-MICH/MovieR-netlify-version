@@ -1,10 +1,15 @@
-
 <!-- <!DOCTYPE html> -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Get the best movies to watch." />
+    <meta property="og:title" content="MovieR..." />
+    <meta property="og:description" content="MovieR..." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://" />
+    <meta property="og:url" content="./" />
     <title>movieI</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"
@@ -14,6 +19,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
     />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <link rel="stylesheet" href="../style.css" />
   </head>
   <body>
@@ -23,9 +30,9 @@
         <a href="#home" class="left"
           ><p>Movie<strong>R</strong></p>
         </a>
-        <a href="../movie/movie.html">Movies</a>
-        <a href="./series.html"  class="active">Series</a>
-        <a href="../index.html" >Discover</a>
+        <a href="./movie.html" class="active">Movies</a>
+        <a href="../series/series.html">Series</a>
+        <a href="../index.html">Discover</a>
         <a href="#contact">Contact</a>
         <a href="javascript:void(0);" class="icon">
           <div class="bar-container">
@@ -37,7 +44,7 @@
       </nav>
     </header>
     <main>
-    <!-- search bar -->
+      <!-- search bar -->
       <section>
         <div data-aos="fade-down" data-aos-delay="100" class="input-group">
           <input
@@ -110,7 +117,7 @@
             <p class="skeleton skeleton-text more"></p>
           </div>
           <h1>Trending Tv Series</h1>
-          <div class="child trending tv"  data-aos="fade-down">
+          <div class="child trending tv" data-aos="fade-down">
             <div class="center">
               <img src="#" alt="" class="skeleton" />
               <span class="text center">
@@ -139,20 +146,20 @@
         </section>
       </section>
     </main>
- <footer class="block block--dark footer">
+    <footer class="block block--dark footer">
       <div class="container-block grid--1x2 flex footer__sections">
         <section class="collapsible collapsible--expanded footer__section">
           <div class="collapsible__header">
-            <h2 class="collapsible__heading footer__heading">Products</h2>
+            <h2 class="collapsible__heading footer__heading">Social Media</h2>
             <svg class="icon icon--white collapsible__chevron">
-              <use href="chevron.svg#chevron"></use>
+              <use href="../src/chevron.svg#chevron"></use>
             </svg>
           </div>
           <div class="collapsible__content">
             <ul class="list more font-small">
-              <li><a href="#">Website Hosting</a></li>
-              <li><a href="#">Free Automated Wordpress</a></li>
-              <li><a href="#">Migrations</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Twitter</a></li>
             </ul>
           </div>
         </section>
@@ -160,7 +167,7 @@
           <div class="collapsible__header">
             <h2 class="collapsible__heading footer__heading">Company</h2>
             <svg class="icon icon--white collapsible__chevron">
-              <use href="chevron.svg#chevron"></use>
+              <use href="../src/chevron.svg#chevron"></use>
             </svg>
           </div>
           <div class="collapsible__content">
@@ -175,7 +182,7 @@
           <div class="collapsible__header">
             <h2 class="collapsible__heading footer__heading">Support</h2>
             <svg class="icon icon--white collapsible__chevron">
-              <use href="chevron.svg#chevron"></use>
+              <use href="../src/chevron.svg#chevron"></use>
             </svg>
           </div>
           <div class="collapsible__content">
@@ -190,7 +197,7 @@
           <div class="collapsible__header">
             <h2 class="collapsible__heading footer__heading">Domains</h2>
             <svg class="icon icon--white collapsible__chevron">
-              <use href="chevron.svg#chevron"></use>
+              <use href="../src/chevron.svg#chevron"></use>
             </svg>
           </div>
           <div class="collapsible__content">
@@ -203,21 +210,28 @@
         </section>
         <div class="footer__brand">
           <a href="#home" class="left"
-          ><p class="logo">Movie<strong>R</strong></p>
-        </a>
-        <a href="https://www.themoviedb.org/"><img src="tmdb.svg" alt=""></a>
-          <p class="footer__copyright">Copyright 2020 Mosh Hamedani</p>
+            ><p class="logo">Movie<strong>R</strong></p>
+          </a>
+          <a href="https://www.themoviedb.org/"
+            ><img src="../images/tmdb.svg" alt=""
+          /></a>
+          <p class="footer__copyright">Copyright 2020 Tolu Francis</p>
         </div>
       </div>
     </footer>
     <template id="card-template">
- <div class="child ">
-            <span class="type skeleton"></span>
-            <img src="" class="skeleton">
-            <p class="skeleton skeleton-text"></p>
-          </div>
+      <div class="child">
+        <span class="type skeleton"></span>
+        <img src="" class="skeleton" />
+        <p class="skeleton skeleton-text"></p>
+      </div>
     </template>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="./series.js" type="module"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      // initialize the appear on screen animation
+      AOS.init();
+    </script>
+    <script src="../../src/movie.js" type="module"></script>
+  </body>
 </html>

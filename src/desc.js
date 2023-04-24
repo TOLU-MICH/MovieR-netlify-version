@@ -1,8 +1,9 @@
-import { collaps, myFunction, nav } from "../modules/nav.js";
-import { popularCard, card, popular } from "../modules/card.js";
-import { description } from "../modules/element.js";
+import { collaps, myFunction, nav } from "../dist/modules/nav.js";
+import { popularCard, card, popular } from "../dist/modules/card.js";
+import { description } from "../dist/modules/element.js";
 
-const recm = document.querySelector(".recommendation");
+let response,
+  recm = document.querySelector(".recommendation");
 const swipContainer = document.querySelector(".swiper-wrapper");
 
 for (let i = 0; i < 6; i++) {
@@ -162,15 +163,17 @@ const lang_list = {
   zu: "Zulu",
 };
 
+// const descript = require("../../thing.json");
 collaps(), myFunction(), nav(), getdata();
 async function getdata() {
-  const response = await fetch("/desc");
+  response = await fetch("/api/description");
   const data = await response.json();
+  console.log(data);
   const { details, cast, recommendation, review, media_type } = data;
-  const trendResponse = await fetch("/trend");
+  const trendResponse = await fetch("/api/trend");
   const trendData = await trendResponse.json();
   const { movie, series } = trendData;
-  console.log(recommendation,cast);
+  console.log(recommendation, cast);
   // sort the data in desending order using the votecount
   const sortRecm = recommendation.sort((a, b) => b.vote_count - a.vote_count);
   // release date
@@ -179,15 +182,17 @@ async function getdata() {
   });
   document.querySelector(".movie_type").textContent = media_type;
   // background image of the movie
- const backdrop = document.querySelector(".backdrop");
- backdrop.classList.remove("skeleton")
- backdrop.src = `https://image.tmdb.org/t/p/original${details.backdrop_path}`;
- // image of the movie
- const imag = document.querySelector(".img-child");
- imag.classList.remove("skeleton")
+  const backdrop = document.querySelector(".backdrop");
+  backdrop.classList.remove("skeleton");
+  backdrop.src = `https://image.tmdb.org/t/p/original${details.backdrop_path}`;
+  // image of the movie
+  const imag = document.querySelector(".img-child");
+  imag.classList.remove("skeleton");
   imag.src = `https://image.tmdb.org/t/p/original${details.poster_path}`;
   // Title
   document.querySelector(".title").innerHTML = details.title;
+  // Title for the document
+  document.querySelector("title").innerText = details.title;
   //  tagline of the movie
   document.querySelector(".tagline").innerHTML = details.tagline;
   //  overview
@@ -263,7 +268,9 @@ async function getdata() {
         `${id} ${media_type}`,
         addr
       );
-      cad.addEventListener("click", description(this));
+      cad.addEventListener("click", function () {
+        description(this);
+      });
       recm.append(cad);
     }
   }

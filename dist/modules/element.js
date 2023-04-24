@@ -63,7 +63,8 @@ function createElement(element, clas, content, id) {
 
 // it's gets the id and the media_type of the movie and then send it to the server on click.
 async function description(elem) {
-  const id = elem.id;
+  const id = elem ? elem.id : this.id;
+  console.log(id);
   // it get the id as a string and then split it into an array of substring
   const array = id.split(" ");
   console.log(array);
@@ -77,8 +78,8 @@ async function description(elem) {
       media_type: array[1],
     }),
   };
-  const data = await fetch("/desc", options);
-  const response = await data.json()
+  const data = await fetch("/.netlify/functions/description", options);
+  const response = await data.json();
   console.log(response);
 }
 

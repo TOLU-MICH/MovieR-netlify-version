@@ -339,8 +339,8 @@ strong {
 }
 .image-container .child {
   position: absolute;
-  top: 69%;
-  left: 50%;
+  top: 25%;
+  left: 16%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   margin: 0;
@@ -352,11 +352,15 @@ strong {
   background-color: red;
   margin: 0;
 }
-@media screen and (min-width:1024px) {
-  .image-container{
+@media screen and (min-width: 1024px) {
+  .image-container .child {
+    top: 55%;
+    left: 45%;
+  }
+  .image-container {
     height: 64em;
   }
-  .backdrop{
+  .backdrop {
     height: 85%;
   }
 }
@@ -413,9 +417,9 @@ article {
   border-radius: 1rem;
   background: #fefefe;
 }
-@media screen and (max-width:720px){
-  article{
-    padding: 2.5rem .1rem;
+@media screen and (max-width: 720px) {
+  article {
+    padding: 2.5rem 0.1rem;
   }
 }
 /* CAST */
@@ -623,7 +627,7 @@ article {
 }
 @media screen and (min-width: 768px) {
   .media {
-    width: 25rem;
+    width: inherit;
   }
 }
 @media screen and (min-width: 768px) {
@@ -880,21 +884,21 @@ article {
 .fames .skeleton {
   display: inline-block;
 }
-.rank.skeleton{
-      width: fit-content;
-    height: 3rem;
-    padding: 1.4rem 2rem 3rem;
-    margin: 0;
-    border-top: 5px solid grey;
+.rank.skeleton {
+  width: fit-content;
+  height: 3rem;
+  padding: 1.4rem 2rem 3rem;
+  margin: 0;
+  border-top: 5px solid grey;
 }
 
 .trending div .text.center .skeleton {
   margin-top: 1.4rem;
 }
 
-.trending .skeleton.info{
+.trending .skeleton.info {
   width: 27rem;
-} 
+}
 .trending .skeleton.more {
   width: 16%;
   display: flex;
@@ -905,10 +909,10 @@ article {
   width: 72%;
 }
 
-.child-content .skeleton-tag{
+.child-content .skeleton-tag {
   width: 10rem;
 }
-.swiper-slide .more .skeleton-tag{
+.swiper-slide .more .skeleton-tag {
   width: 40%;
 }
 .skeleton-tag {
