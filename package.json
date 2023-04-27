@@ -4,8 +4,7 @@
   "description": "A movie recommendation system",
   "main": "server.js",
   "scripts": {
-    "dev": "netlify dev",
-    "build": "netlify build"
+    "dev": "netlify dev"
   },
   "keywords": [
     "movie",
