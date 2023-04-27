@@ -10,3 +10,8 @@ functions = "functions"
 [[redirects]]
   from = "/api/*"
   to="/.netlify/functions/:splat"
+
+  [functions]
+  # Specifies `esbuild` for functions bundling
+  node_bundler = "esbuild"
+  external_node_modules = ["node_modules"]
