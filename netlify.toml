@@ -1,7 +1,11 @@
 [build]
 # command = "npm run build"
 functions = "functions"
-publish="dist"
+# publish="dist"
+
+[[redirects]]
+  from = "/"
+  to = "/dist"
 
 [[redirects]]
   from = "/api/*"
