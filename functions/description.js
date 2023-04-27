@@ -1,5 +1,4 @@
 require("dotenv").config();
-const response = require("../thing.json");
 const apiKey = process.env.API_KEY;
 const fsp = require("fs/promises");
 
@@ -18,6 +17,8 @@ exports.handler = async function (event, context) {
       message: "POST successful",
     };
   } else {
+    const response = require("../thing.json");
+
     const id = response.id;
     const media_type = response.media_type;
     // get the details of the card that is clicked
