@@ -1,6 +1,6 @@
-import { collaps, myFunction, nav } from "../dist/modules/nav.js";
-import { popularCard, card, popular } from "../dist/modules/card.js";
-import { description } from "../dist/modules/element.js";
+import { collaps, myFunction, nav } from "../modules/nav.js";
+import { popularCard, card, popular } from "../modules/card.js";
+import { description } from "../modules/element.js";
 
 let response,
   recm = document.querySelector(".recommendation");

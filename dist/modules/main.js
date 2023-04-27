@@ -38,7 +38,7 @@ async function getData(request, morelink) {
   // if no argument is supplied it will display the trending movies and tv series together
   else {
     sortData = trending.sort((a, b) => b.vote_count - a.vote_count);
-    addr = "dist/Desc/desc.html";
+    addr = "/Desc/desc.html";
   }
   const sortPopular = popular.sort((a, b) => b.vote_count - a.vote_count);
   /*set the swipper content to be empty once the data as been fetched */
