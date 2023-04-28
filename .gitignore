@@ -1,6 +1,5 @@
 node_modules
 .env
-thing.json
 
 # Local Netlify folder
 .netlify
