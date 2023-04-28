@@ -13,8 +13,8 @@ exports.handler = async function (event, context) {
   //   `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`
   // );
 
-  const trendJson = await trending.json();
-  const popularJson = await popular.json();
+  // const trendJson = await trending.json();
+  // const popularJson = await popular.json();
   return {
     statusCode: 200,
     body: JSON.stringify({
