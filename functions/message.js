@@ -1,6 +1,8 @@
+const apiKey = process.env.API_KEY;
+
 exports.handler = async function (event, context) {
   return {
     statusCode: 200,
-    body: "the function is working fine, thanks!",
+    body: JSON.stringify(apiKey),
   };
 };
