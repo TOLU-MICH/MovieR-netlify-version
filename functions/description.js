@@ -1,6 +1,7 @@
 require("dotenv").config();
 const apiKey = process.env.API_KEY;
 const fsp = require("fs/promises");
+import fetch from "node-fetch";
 
 exports.handler = async function (event, context) {
   // execute this code if a post request is sent to the function

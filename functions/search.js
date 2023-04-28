@@ -1,5 +1,6 @@
 require("dotenv").config();
 const apiKey = process.env.API_KEY;
+import fetch from "node-fetch";
 
 exports.handler = async function (event, context) {
   const data = JSON.parse(event.body);
