@@ -1,6 +1,6 @@
 // require("dotenv").config();
 const apiKey = process.env.API_KEY;
-import fetch from "node-fetch";
+const fetch = require("node-fetch");
 
 exports.handler = async function (event, context) {
   // get the trendig movies and tv series for the present day
@@ -16,7 +16,7 @@ exports.handler = async function (event, context) {
   return {
     statusCode: 200,
     body: JSON.stringify({
-      trending: trendJson.results,
+      trending: trendJson,
       // popular: popularJson.results,
     }),
   };
