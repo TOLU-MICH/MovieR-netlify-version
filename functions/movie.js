@@ -4,9 +4,7 @@ import fetch from "node-fetch";
 
 exports.handler = async function (event, context) {
   // get the trendig movies and tv series for the present day
-  const trending = await fetch(
-    `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`
-    );
+  const trending = await fetch(`https://api.github.com/users/github`);
 
   // get the popular movies and tv series f
   //   const popular = await fetch(
