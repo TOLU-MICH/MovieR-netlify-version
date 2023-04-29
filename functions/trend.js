@@ -1,4 +1,3 @@
-require("dotenv").config();
 const apiKey = process.env.API_KEY;
 import fetch from "node-fetch";
 
