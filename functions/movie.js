@@ -1,6 +1,6 @@
 // require("dotenv").config();
 const apiKey = process.env.API_KEY;
-// import fetch from "node-fetch";
+import fetch from "node-fetch";
 
 exports.handler = async function (event, context) {
   // get the trendig movies and tv series for the present day
